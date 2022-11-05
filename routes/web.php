@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GroupController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\FormController;
 use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,22 +14,12 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/index', [PageController::class, 'getIndex']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route::post('/', [FormController::class, 'displayInfo']);
-
-
-
-// Route::get('tinhtong',function(){
-//     return view('sum');
-// });
-// Route::post('tinhtong','SumController@tinhtong');
-
-
-/* Group test */
-// Route::group(['prefix' => 'admin'], function(){
-//     Route::get('/user1', [GroupController::class, 'user1']);
-//     Route::get('/user2', [GroupController::class, 'user2']);
-//     Route::get('/user3', [GroupController::class, 'user3']);
-
-// });
+Route::get('index',[PageController::class, 'getIndex']);
+Route::get('loai-san-pham',[PageController::class, 'getLoaiSp']);
+Route::get('chi-tiet-san-pham',[PageController::class, 'getChitiet']);
+Route::get('lien-he', [PageController::class, 'getLienhe']);
+Route::get('gioi-thieu',[PageController::class, 'getAbout']);
